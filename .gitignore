@@ -1,0 +1,17 @@
+__pycache__/
+*.py[cod]
+.venv/
+env/
+
+node_modules/
+
+*.csv
+*.xlsx
+reports/
+data/upload/*
+!data/upload/.gitkeep
+
+.env
+
+.idea/
+.vscode/

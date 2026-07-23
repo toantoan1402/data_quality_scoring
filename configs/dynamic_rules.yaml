@@ -1,0 +1,24 @@
+rules:
+  completeness:
+    check_missing_values:
+      - column: id
+        allowed_null_percentage: 0
+      - column: name
+        allowed_null_percentage: 0
+      - column: address
+        allowed_null_percentage: 0
+  accuracy:
+    check_format:
+      - column: phone_number
+        regex: ^(0|84)[0-9]{9}$
+      - column: email
+        regex: ^[\w\.-]+@[\w\.-]+\.\w+$
+      - column: cccd
+        regex: ^([0-9]{12})$
+    check_range:
+      - column: age
+        min: 18
+        max: 100
+    check_allowed_values: []
+  consistency:
+    check_logic: []

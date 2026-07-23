@@ -1,0 +1,111 @@
+{
+    "completeness": {
+        "required": {
+            "label": "Bắt buộc (Không được để trống)",
+            "type": "missing",
+            "allowed_null_percentage": 0
+        },
+        "optional_90": {
+            "label": "Cho phép trống tối đa 10%",
+            "type": "missing",
+            "allowed_null_percentage": 10
+        }
+    },
+    "accuracy": {
+        "email": {
+            "label": "Định dạng Email chuẩn",
+            "type": "regex",
+            "value": "^[\\w\\.-]+@[\\w\\.-]+\\.\\w+$"
+        },
+        "phone_vn": {
+            "label": "Số điện thoại (10 số)",
+            "type": "regex",
+            "value": "^(0|84)[0-9]{9}$"
+        },
+        "cccd": {
+            "label": "CCCD (12 số)",
+            "type": "regex",
+            "value": "^([0-9]{12})$"
+        },
+        "tax_id": {
+            "label": "Mã số thuế (10-14 số)",
+            "type": "regex",
+            "value": "^[0-9]{10}(-[0-9]{3})?$"
+        },
+        "order_id": {
+            "label": "Mã đơn hàng (ORD-xxx)",
+            "type": "regex",
+            "value": "^ORD-[0-9]{5,10}$"
+        },
+        "positive_number": {
+            "label": "Giá trị phải > 0",
+            "type": "range",
+            "min": 0.01
+        },
+        "valid_age": {
+            "label": "Tuổi hợp lệ (18 - 100)",
+            "type": "range",
+            "min": 18,
+            "max": 100
+        },
+        "website_url": {
+            "label": "Định dạng Link Website",
+            "type": "regex",
+            "value": "^https?:\\/\\/(?:www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b(?:[-a-zA-Z0-9()@:%_\\+.~#?&\\/=]*)$"
+        },
+        "product_sku": {
+            "label": "Mã sản phẩm/SKU (VD: SP-123)",
+            "type": "regex",
+            "value": "^[A-Z0-9]+-[A-Z0-9]+$"
+        },
+        "ipv4_address": {
+            "label": "Địa chỉ IPv4",
+            "type": "regex",
+            "value": "^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$"
+        },
+        "valid_discount_percent": {
+            "label": "Phần trăm giảm giá (0-100)",
+            "type": "range",
+            "min": 0,
+            "max": 100
+        },
+        "rating_5_stars": {
+            "label": "Đánh giá sao (1-5)",
+            "type": "range",
+            "min": 1,
+            "max": 5
+        }
+    },
+    "consistency": {
+        "end_after_start": {
+            "label": "Ngày kết thúc > Ngày bắt đầu",
+            "type": "logic",
+            "value": "end_date > start_date"
+        },
+        "sale_profit": {
+            "label": "Giá bán >= Giá gốc",
+            "type": "logic",
+            "value": "sale_price >= cost_price"
+        },
+        "birthday_past": {
+            "label": "Ngày sinh",
+            "type": "logic",
+            "value": "birthday < today"
+        },
+        "delivery_timeline": {
+            "label": "Ngày nhận >= Ngày xuất kho",
+            "type": "logic",
+            "value": "delivered_date >= shipped_date"
+        },
+        "inventory_logic": {
+            "label": "SL Nhập >= SL Bán ra",
+            "type": "logic",
+            "value": "qty_imported >= qty_sold"
+        },
+        "discount_logic": {
+            "label": "Giá gốc > Giá khuyến mãi",
+            "type": "logic",
+            "value": "original_price > discount_price"
+        }
+    }
+}
